@@ -82,6 +82,14 @@
             font-size: 1em;        /* سایز متن محتوا */
             color: #FF1493;        /* رنگ متن محتوا (قرمز نئونی) */
         }
+        .swal2-custom-popup {
+            border-radius: 10px; /* لبه‌های گرد */
+            padding: 20px;
+        }
+        
+        .swal2-custom-content {
+            color: #f00; /* متن با رنگ نئون قرمز */
+        }
         
         
     </style>
@@ -470,6 +478,24 @@
                     });
                 }
             },
+            'cd -ut': {
+                helpText: 'Search a query on Google. Usage: cd -ut <query>',
+                execute: function(query) {
+                    if (!query) {
+                        return 'Please provide a search query. Usage: cd -ut <query>';
+                    }
+                    
+                    // ساختن URL جستجو با استفاده از متن وارد شده توسط کاربر
+                    const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+
+                    // باز کردن تب جدید با URL جستجو
+                    window.open(googleSearchUrl, '_blank');
+
+                    // بازگشت پیام موفقیت‌آمیز
+                    return `Searching Google for: ${query}`;
+                }
+            },
+
             timer: {
                 helpText: 'Set a timer for the specified number of seconds.',
                 /**
@@ -558,31 +584,75 @@
                     }
                 }
             },
-            matrix: {
-                helpText: 'Display random numbers and letters for 10 seconds.',
-                execute: function() {
-                    const outputDiv = document.getElementById('output'); // فرض می‌کنیم که outputDiv با این ID موجود است
-                    outputDiv.innerHTML += '<br><span>Bashify$</span> matrix';
-                    
-                    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'; // کاراکترهای قابل استفاده
-                    let intervalId; // متغیر برای ذخیره شناسه اینترفیس
+            joke: {
+                    helpText: 'Fetch a random family-friendly joke from the Dad Jokes API and display it.',
+                    execute: async function() {
+                        try {
+                            const response = await fetch('https://icanhazdadjoke.com/', {
+                                headers: {
+                                    'Accept': 'application/json'
+                                }
+                            });
+                            const data = await response.json(); // دریافت داده‌ها به صورت JSON
 
-                    // تابعی برای ایجاد خروجی تصادفی
-                    const generateRandomOutput = () => {
-                        const randomChar = characters.charAt(Math.floor(Math.random() * characters.length));
-                        outputDiv.innerHTML += randomChar; // نمایش کاراکتر تصادفی
-                    };
+                            // نمایش جوک با SweetAlert2 با استایل سفارشی
+                            Swal.fire({
+                                title: '<span style="color: #f00;">Dad Joke</span>', // رنگ نئون قرمز برای عنوان
+                                text: data.joke, // محتوای جوک
+                                icon: 'info',
+                                iconColor:'#FF1493',
+                                background: '#000', // پس‌زمینه سیاه
+                                confirmButtonText: 'Haha',
+                                confirmButtonColor: '#f00', // رنگ نئون قرمز برای دکمه
+                                customClass: {
+                                    popup: 'swal2-custom-popup', // کلاس سفارشی برای استایل کلی
+                                    content: 'swal2-custom-content' // کلاس سفارشی برای متن
+                                }
+                            });
+                        } catch (error) {
+                            Swal.fire({
+                                title: '<span style="color: #f00;">Error</span>', // رنگ نئون قرمز برای عنوان خطا
+                                text: 'Unable to fetch joke at the moment.',
+                                icon: 'error',
+                                background: '#000', // پس‌زمینه سیاه
+                                confirmButtonText: 'OK',
+                                confirmButtonColor: '#f00' // رنگ نئون قرمز برای دکمه
+                            });
+                        }
+                    }
+                },
 
-                    // شروع تولید کاراکترهای تصادفی
-                    intervalId = setInterval(generateRandomOutput, 100); // هر 100 میلی‌ثانیه یک کاراکتر جدید نمایش داده می‌شود
+                'joke -18': {
+                    helpText: 'Fetch a random Chuck Norris joke from an API and display it.',
+                    execute: async function() {
+                        try {
+                            const response = await fetch('https://api.chucknorris.io/jokes/random'); // فراخوانی API
+                            const data = await response.json(); // دریافت داده‌ها به صورت JSON
 
-                    // توقف تولید بعد از 10 ثانیه
-                    setTimeout(() => {
-                        clearInterval(intervalId); // متوقف کردن اینترفیس
-                        outputDiv.innerHTML += '<br>Matrix finished!'; // پیام پایان
-                    }, 10000); // 10 ثانیه
-                }
-            },
+                            // نمایش جوک با SweetAlert2
+                            Swal.fire({
+                                title: 'Chuck Norris Joke',
+                                text: data.value, // محتوای جوک
+                                icon: 'info',
+                                confirmButtonText: 'Laugh',
+                                background: '#2c2c2c', // پس‌زمینه سیاه
+                                color: '#ffcc00', // رنگ متن زرد مایل به قرمز
+                                confirmButtonColor: '#ff3300' // رنگ دکمه تأیید
+                            });
+                        } catch (error) {
+                            Swal.fire({
+                                title: 'Error',
+                                text: 'Unable to fetch joke at the moment.',
+                                icon: 'error',
+                                confirmButtonText: 'OK',
+                                background: '#2c2c2c', // پس‌زمینه سیاه
+                                color: '#ffcc00', // رنگ متن زرد مایل به قرمز
+                                confirmButtonColor: '#ff3300' // رنگ دکمه تأیید
+                            });
+                        }
+                    }
+                },
+
 
             history: {
                 helpText: 'Display the history of executed commands.',
@@ -709,7 +779,19 @@
                     } else {
                         outputDiv.innerHTML += '<br>echo: No message to display.';
                     }
-                }   else if (command.startsWith('cd -u')) {
+                }   else if (command.startsWith('cd -ut')) {
+                    let query = command.split(' ').slice(2).join(' '); // گرفتن کوئری جستجو
+                    console.log(query);
+                    outputDiv.innerHTML += `<br><span>Bashify$</span> ${command}`;
+                
+                    if (query) {
+                        const result = commands['cd -ut'].execute(query); // اجرای دستور cd -ut
+                        outputDiv.innerHTML += `<br>${result}`; // نمایش نتیجه
+                    } else {
+                        outputDiv.innerHTML += `<br>Please provide a query after 'cd -ut'`;
+                    }
+                }
+                else if (command.startsWith('cd -u')) {
                     let url = command.split(' ')[2]; // گرفتن URL
                     console.log(url);
                     outputDiv.innerHTML += `<br><span>Bashify$</span> ${command}`;
