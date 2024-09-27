@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="about-container">
+    <h1 class="about-title">About Us</h1>
+    <p class="about-text">
+        <span class="intro-highlight">Hi, I'm Farzam.</span> I decided to start this project at the age of 14 to practice and learn <span class="highlight-special">Django, JS, CSS, and HTML</span>. Since I'm really passionate about Bash, I created this project. <span class="highlight-special">I hope you like it!</span>
+    </p>
+</div>
+
+<footer class="border-top custom-footer">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <ul class="list-inline text-center">
+                    <li class="list-inline-item">
+                        <a href="https://github.com/farzamvalizade" target="_blank" class="social-icon">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x icon-background"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse icon-effect"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://t.me/TechTinker_farzam" target="_blank" class="social-icon telegram-channel">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x icon-background-channel"></i>
+                                <i class="fab fa-telegram-plane fa-stack-1x fa-inverse icon-effect"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://t.me/farzamv89" target="_blank" class="social-icon telegram-personal">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x icon-background-personal"></i>
+                                <i class="fas fa-user-circle fa-stack-1x fa-inverse icon-effect"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="tel:+989119809389" class="social-icon">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x icon-background"></i>
+                                <i class="fas fa-phone fa-stack-1x fa-inverse icon-effect"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="mailto:farzam.valizadeh.2020@gmail.com" class="social-icon">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x icon-background"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse icon-effect"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="small text-center text-muted fst-italic">Copyright &copy; Bashify 2023</div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style>
+    .about-container {
+        background-color: #1c1c1c;
+        color: #f0f0f0;
+        padding: 50px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        margin-bottom: 40px;
+        max-width: 900px;
+        margin: 40px auto;
+    }
+    
+    .about-title {
+        font-size: 42px;
+        margin-bottom: 20px;
+        color: #ff0040;
+        font-weight: bold;
+        text-shadow: 0px 0px 10px #ff0040;
+    }
+
+    .about-text {
+        font-size: 20px;
+        line-height: 1.8;
+        color: #d0d0d0;
+        font-family: 'Roboto', sans-serif;
+        margin-bottom: 30px;
+        text-align: justify;
+        letter-spacing: 0.5px;
+        max-width: 750px;
+        margin: 0 auto;
+    }
+
+    .highlight, .highlight-special {
+        color: #ff0040;
+        font-weight: bold;
+    }
+    
+    .highlight-special {
+        color: #0f0;
+        text-shadow: 0 0 8px #00ff00;
+        font-style: italic;
+    }
+    
+    .intro-highlight {
+        color: #ffffff;
+        font-size: 24px;
+        text-shadow: 0px 0px 5px #ff0040;
+        font-weight: bold;
+    }
+
+    .custom-footer {
+        background-color: #1c1c1c;
+        padding: 50px 0;
+        border-top: 2px solid #ff0040;
+        color: #f0f0f0;
+    }
+
+    .social-icon {
+        transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+
+    .icon-background {
+        color: #ff0040;
+    }
+
+    .icon-effect {
+        color: #ffffff;
+        transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    .telegram-channel .icon-background-channel {
+        color: #ff0040;
+    }
+
+    .telegram-channel:hover .icon-background-channel {
+        color: #ff0040;
+        transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    .telegram-personal .icon-background-personal {
+        color: #ff0040;
+    }
+
+    .telegram-personal:hover .icon-background-personal {
+        color: #ff3366;
+        transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    .social-icon:hover .icon-effect {
+        color: #0f0;
+        transform: rotate(360deg);
+    }
+
+    .small.text-muted {
+        color: #a0a0a0;
+        margin-top: 20px;
+    }
+</style>
+{% endblock content %}
