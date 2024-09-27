@@ -1,0 +1,207 @@
+/* استایل‌های عمومی */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+/* استایل برای صفحه لاگین */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.login-form-container {
+    max-width: 450px;
+    background-color: #1e1e1e;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* استایل برای عنوان */
+.login-form-container h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #fff;
+}
+
+/* استایل فرم لاگین */
+.login-form {
+    margin: 0;
+}
+
+/* استایل فیلدهای ورودی */
+.login-form input {
+    width: calc(100% - 22px); /* عرض فیلد با در نظر گرفتن padding */
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #444;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+/* استایل برای دکمه قرمز نئونی */
+.btn-primary {
+    background-color: #ff4d4d; /* قرمز نئونی */
+    border-color: #ff4d4d;
+    color: white;
+    padding: 12px 25px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 77, 77, 0.7);
+}
+
+.btn-primary:hover {
+    background-color: #cc0000; /* قرمز تیره‌تر */
+    border-color: #cc0000;
+    color: #f1f1f1;
+}
+/* استایل برای فیلدهای ورودی */
+.login-form input {
+    width: calc(100% - 22px); /* عرض فیلد با در نظر گرفتن padding */
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #444;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* استایل برای فوکوس روی فیلدهای ورودی */
+.login-form input:focus {
+    border-color: #ff4d4d; /* تغییر رنگ حاشیه در حالت فوکوس */
+    background-color: #444;
+    outline: none;
+}
+/* استایل برای عنوان */
+.login-form-container h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #fff;
+    word-spacing: 5px; /* فاصله بین کلمات */
+}
+/* استایل برای فیلدهای ورودی */
+.login-form input {
+    width: calc(100% - 22px); /* عرض فیلد با در نظر گرفتن padding */
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #444;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* استایل برای placeholder */
+.login-form input::placeholder {
+    color: #888; /* رنگ placeholder */
+    font-size: 0.9rem; /* اندازه فونت placeholder */
+}
+
+/* استایل برای فوکوس روی فیلدهای ورودی */
+.login-form input:focus {
+    border-color: #ff4d4d; /* تغییر رنگ حاشیه در حالت فوکوس */
+    background-color: #444;
+    outline: none;
+}
+
+/* استایل برای پیام‌های خطا */
+/* استایل برای پیام‌های خطا */
+.alert {
+    background-color: #2e2e2e; /* رنگ پس‌زمینه خاکستری تیره */
+    color: #ff4d4d; /* متن قرمز نئونی */
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    border: 1px solid #ff4d4d; /* حاشیه قرمز نئونی */
+}
+
+/* استایل برای متن خطاها */
+.alert ul {
+    padding: 0;
+    margin: 0;
+}
+
+.alert ul li {
+    list-style: none; /* حذف بولت */
+    margin-bottom: 10px; /* فاصله بین خطاها */
+    font-size: 0.95rem;
+}
+
+/* دکمه بستن پیام */
+.alert .btn-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #ff4d4d;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.alert .btn-close:hover {
+    color: #ff9999;
+}
+
+/* اطمینان از جایگیری مناسب دکمه لاگین */
+.login-form-container {
+    max-width: 450px;
+    background-color: #1e1e1e;
+    padding: 30px 40px;
+    border-radius: 8px;
+
+    text-align: center;
+    position: relative;
+}
+
+/* Styling for the close button */
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #ff4d4d; /* Neon red for close button */
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for close button */
+.close-btn:hover {
+    color: #ff9999; /* Lighter neon red on hover */
+}
+
+/* Styling for the "X" inside the button */
+.close-icon {
+    font-size: 1.2rem;
+    color: inherit; /* Inherits the color of the button */
+}
+
+/* Adjustments to prevent button from shifting content */
+.alert-dismissible {
+    padding-right: 50px; /* Extra padding to prevent content from being overlapped by the close button */
+}

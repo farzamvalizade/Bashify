@@ -1,0 +1,92 @@
+
+.profile-card {
+    background-color: #1e1e1e;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    width: 600px;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.profile-pic img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #555;
+    margin-right: 20px;
+}
+
+.profile-username h2 {
+    color: #f8f9fa;
+    font-weight: bold;
+    margin: 0;
+}
+
+.command-form {
+    margin-top: 30px;
+}
+
+.command-list {
+    margin-top: 30px;
+}
+
+.command-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.command-list li {
+    background-color: #2c2c2c;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #2c2c2c;
+    border: none;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    background-color: #333;
+    box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+}
+
+.btn-primary {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #555;
+}

@@ -1,0 +1,30 @@
+/* static/account/terminal.css */
+.terminal {
+    background-color: #1e1e1e; /* تاریک مشابه `p10k` */
+    color: #f8f8f2; /* متن روشن */
+    font-family: 'Courier New', monospace;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    height: 500px;
+    overflow-y: auto;
+    margin-bottom: 120px;
+}
+
+.terminal-input {
+    color: #0f0; /* رنگ ورودی */
+    border: none;
+    background: none;
+    width: 100%;
+    font-size: 16px;
+}
+
+.terminal-output {
+    color: #f8f8f2;
+}
+
+.terminal-output span {
+    color: #f92672; /* رنگ دستور */
+}

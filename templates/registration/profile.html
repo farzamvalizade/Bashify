@@ -1,0 +1,69 @@
+<!-- templates/account/profile.html -->
+{% extends 'base.html' %}
+{% load static %}
+{% load gravatar %}
+
+{% block title %}
+    Profile - Bashify
+{% endblock title %}
+
+{% block content %}
+<div class="container d-flex justify-content-center mb-4 mt-4">
+    <div class="profile-card">
+        <div class="d-flex justify-content-start">
+            <form method="post" action="{% url 'account:logout' %}" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-link text-white" style="color: inherit; text-decoration: none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
+                        <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+                    </svg>
+                </button>
+            </form>
+        </div>
+        <!-- Profile Picture and Username -->
+        <div class="profile-info">
+            <div class="profile-pic m-4">
+                <img src="{% gravatar_url user.email 150 %}" alt="{{ user.username }}">
+            </div>
+            <div class="profile-username">
+                <h2>{{ user.username }}</h2>
+            </div>
+        </div>
+        <div class="section">
+            <a href="{% url 'user_terminal' user.username %}" class="btn btn-primary m-2">Go to Terminal</a>
+            <a href="{% url 'change_password' %}" class="btn btn-primary m-2">Reset Password</a>
+        </div>
+
+        <!-- Command Form -->
+        <div class="command-form">
+            <h3>Add a Command</h3>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="command">Command</label>
+                    <input type="text" id="command" name="command" placeholder="Enter command" required>
+                </div>
+                <div class="form-group">
+                    <label for="output">Output</label>
+                    <textarea id="output" name="output" placeholder="Enter output" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Command</button>
+            </form>
+        </div>
+
+        <!-- List of Commands -->
+        <div class="command-list">
+            <h3>Your Commands</h3>
+            <ul>
+                {% for command in commands %}
+                    <li>
+                        <strong>{{ command.command }}</strong>: {{ command.output }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+<link rel="stylesheet" href="{% static 'account/profile.css' %}">
+{% endblock content %}

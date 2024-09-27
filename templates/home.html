@@ -1,0 +1,36 @@
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Home - Bashify
+{% endblock title %}
+
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home/base.css' %}">
+{% endblock extra_css %}
+    
+
+{% block content %}
+
+<div class="center-container">
+    <div>
+        <h1 id="typing-text"></h1> <!-- متن تایپ -->
+        <p id="site-description" class="mt-3"> <!-- توضیحات درباره سایت -->
+            Bashify : Command Line for your Profile
+        </p>
+        
+        {% if user.is_authenticated %}
+        <a href="/{{user.username}}" class="btn btn-primary mt-4 me-2">your Terminal</a>
+        {% else %}
+            <a href="{% url 'signup' %}" class="btn btn-primary mt-4 me-2">Get Started</a>
+        {% endif %}
+            
+    </div>
+</div>
+{% endblock content %}
+
+{% block extra_js %}
+    <script src="{% static 'home/base.js' %}"></script>
+{% endblock extra_js %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Please activate your account
+{% endblock title %}
+
+
+{% block content %}
+<div class="container d-flex justify-content-center mb-4 mt-4">
+    
+        
+            <h3 class="alert alert-danger m-4" style="background-color: #ee5b5b;">Please check your emails to activate your account(don't forgot to check spam folder!)
+
+                <p ><a href="{% url 'login' %}" class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover link-info m-2">Click here</a> to login</p>
+            </h3>
+        
+      
+</div>
+
+
+{% endblock content %}
+    
