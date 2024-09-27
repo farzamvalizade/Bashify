@@ -11,7 +11,7 @@ Bashify is a web-based terminal-like platform where users can create and define 
 
 
 ## Live Demo
-Check out the live demo: [Bashify](https://farzam1389.pythonanywhere.com)  did not work now!!!
+Check out the live demo: [Bashify](https://farzam1389.pythonanywhere.com)
 
 ## Installation
 
